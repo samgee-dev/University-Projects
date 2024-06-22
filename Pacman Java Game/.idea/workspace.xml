@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="28408bd8-de67-471a-bf66-ecaa8058f9ee" name="Default Changelist" comment="everything is done, done annnnnnnnndddddddddddd doneeeeeeeeeee!!!&#10;UwU&#10;Yayayayayayayayaayayyaya&#10;CELEBRATE GOOD TIMES COME ON">
+      <change beforePath="$PROJECT_DIR$/src/pacman/game/PacmanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacman/game/PacmanGame.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SUTQZgR2UXVwwSkZzNM7eln9lj" />
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../2021_Semester 1/COMP4403/a1" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="play.paths.configuration" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Launcher">
+    <configuration name="Launcher" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pacman.Launcher" />
+      <module name="assignment 3" />
+      <option name="PROGRAM_PARAMETERS" value="maps\csse2010.map saved.map" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Admin\Documents\Courses\2019_Semester 2\CSSE2002\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pacman.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pacman.display.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pacman.display" />
+      <option name="MAIN_CLASS_NAME" value="pacman.display.BoardViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pacman.display.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pacman.display" />
+      <option name="MAIN_CLASS_NAME" value="pacman.display.ScoreViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreViewModelTest.setPlayerScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pacman.display.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pacman.display" />
+      <option name="MAIN_CLASS_NAME" value="pacman.display.ScoreViewModelTest" />
+      <option name="METHOD_NAME" value="setPlayerScore" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreViewModelTest.setPlayerScoreAdvanced" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pacman.display.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pacman.display" />
+      <option name="MAIN_CLASS_NAME" value="pacman.display.ScoreViewModelTest" />
+      <option name="METHOD_NAME" value="setPlayerScoreAdvanced" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreViewModelTest.setPlayerScoreDefault" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pacman.display.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pacman.display" />
+      <option name="MAIN_CLASS_NAME" value="pacman.display.ScoreViewModelTest" />
+      <option name="METHOD_NAME" value="setPlayerScoreDefault" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="JUnit.ScoreViewModelTest" />
+      <item itemvalue="JUnit.ScoreViewModelTest.setPlayerScore" />
+      <item itemvalue="JUnit.ScoreViewModelTest.setPlayerScoreAdvanced" />
+      <item itemvalue="JUnit.ScoreViewModelTest.setPlayerScoreDefault" />
+      <item itemvalue="JUnit.BoardViewModelTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BoardViewModelTest" />
+        <item itemvalue="JUnit.ScoreViewModelTest" />
+        <item itemvalue="JUnit.ScoreViewModelTest.setPlayerScoreDefault" />
+        <item itemvalue="JUnit.ScoreViewModelTest.setPlayerScoreAdvanced" />
+        <item itemvalue="JUnit.ScoreViewModelTest.setPlayerScore" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Admin\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Users\Admin\Documents\Courses\2019_Semester 2\CSSE2002\Projects\assignment 3" />
+          <option name="myCopyRoot" value="C:\Users\Admin\Documents\Courses\2019_Semester 2\CSSE2002\Projects\assignment 3" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Users\Admin\Documents\Courses\2019_Semester 2\CSSE2002\Projects\assignment 3" />
+          <option name="myCopyRoot" value="C:\Users\Admin\Documents\Courses\2019_Semester 2\CSSE2002\Projects\assignment 3" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28408bd8-de67-471a-bf66-ecaa8058f9ee" name="Default Changelist" comment="" />
+      <created>1571617158791</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571617158791</updated>
+      <workItem from="1571617159983" duration="55845000" />
+      <workItem from="1572915484329" duration="27000" />
+      <workItem from="1585561649736" duration="138000" />
+      <workItem from="1585561862895" duration="3666000" />
+      <workItem from="1587103539142" duration="229000" />
+      <workItem from="1617578161073" duration="56000" />
+    </task>
+    <task id="LOCAL-00001" summary="first upload UwU">
+      <created>1571646147657</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571646147657</updated>
+    </task>
+    <task id="LOCAL-00002" summary="completed a file">
+      <created>1571728686047</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571728686047</updated>
+    </task>
+    <task id="LOCAL-00003" summary="completed MainViewModel and BoardViewModel Pog">
+      <created>1571752432819</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571752432819</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Done just testing">
+      <created>1571904620591</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571904620591</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Done just testing">
+      <created>1571908706619</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571908706619</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Done just testing">
+      <created>1571920651782</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1571920651782</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Completed BoardViewModelTest. Only ScoreViewModelTest to go!!">
+      <created>1571928288883</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571928288883</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Completed BoardViewModelTest. Only ScoreViewModelTest to go!!">
+      <created>1571930838464</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571930838464</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Completed BoardViewModelTest. Only ScoreViewModelTest to go!!">
+      <created>1571933659420</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571933659420</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Completed BoardViewModelTest. Only ScoreViewModelTest to go!!">
+      <created>1571935037826</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571935037826</updated>
+    </task>
+    <task id="LOCAL-00011" summary="everything is done, done annnnnnnnndddddddddddd doneeeeeeeeeee!!!&#10;UwU&#10;Yayayayayayayayaayayyaya&#10;CELEBRATE GOOD TIMES COME ON">
+      <created>1571969947755</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571969947755</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first upload UwU" />
+    <MESSAGE value="completed a file" />
+    <MESSAGE value="completed MainViewModel and BoardViewModel Pog" />
+    <MESSAGE value="Done just testing" />
+    <MESSAGE value="Completed BoardViewModelTest. Only ScoreViewModelTest to go!!" />
+    <MESSAGE value="everything is done, done annnnnnnnndddddddddddd doneeeeeeeeeee!!!&#10;UwU&#10;Yayayayayayayayaayayyaya&#10;CELEBRATE GOOD TIMES COME ON" />
+    <option name="LAST_COMMIT_MESSAGE" value="everything is done, done annnnnnnnndddddddddddd doneeeeeeeeeee!!!&#10;UwU&#10;Yayayayayayayayaayayyaya&#10;CELEBRATE GOOD TIMES COME ON" />
+  </component>
+</project>

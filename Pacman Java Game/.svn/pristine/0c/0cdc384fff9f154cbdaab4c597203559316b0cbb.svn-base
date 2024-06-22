@@ -1,0 +1,262 @@
+package pacman.display;
+
+import javafx.beans.property.*;
+import pacman.game.GameWriter;
+import pacman.game.PacmanGame;
+import pacman.hunter.Hunter;
+import pacman.util.Direction;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+/**
+ * MainViewModel
+ *
+ * Used as an intermediary between the game and the MainView
+ */
+public class MainViewModel {
+    // Initiate the PacmanGame and file name which will be used
+    private PacmanGame model;
+    private String saveFilename;
+    private ScoreViewModel scoreViewModel;
+    private BoardViewModel boardViewModel;
+    private boolean gamePaused;
+    private int ticks;
+    private Boolean gameOver;
+    private StringProperty windowTitle;
+
+    /**
+     * Creates a MainViewModel and updates the properties and the ScoreViewModel created.
+     * ScoreViewModel and BoardViewModel should be created here.
+     *
+     * By default, the game should be paused.
+     *
+     * @param model the PacmanGame to link to the view
+     * @param saveFilename the name for saving the game
+     *
+     * @require model != null && saveFilename != null && !saveFilename.isEmpty()
+     */
+    public MainViewModel(PacmanGame model, String saveFilename) {
+        // Set and initialise all the values to be used
+        this.model = model;
+        this.saveFilename = saveFilename;
+        this.scoreViewModel = new ScoreViewModel(model);
+        this.boardViewModel = new BoardViewModel(model);
+        this.windowTitle = new SimpleStringProperty();
+        this.gamePaused = true;
+        this.ticks = 0;
+        this.gameOver = false;
+
+        // Call the update() function
+        update();
+
+    }
+
+    /**
+     * Updates the title of the game window and the score view model.
+     *
+     * @ensure title format is "[title] by [author]" without the quotes or
+     * brackets. For example, "Default CSSE2002 PacMan Map by Evan Hughes".
+     * There should be a single space either side of "by"
+     */
+    public void update() {
+        // Update the title and call ScoreViewModel.update()
+        this.windowTitle.set("" + this.model.getTitle() + " by " +
+                this.model.getAuthor());
+        this.scoreViewModel.update();
+
+    }
+
+    /**
+     * Gets the title property of the Game Window.
+     *
+     * @return the title property of the game
+     */
+    public StringProperty getTitle() {
+        return this.windowTitle;
+    }
+
+    /**
+     * Gets the property representing whether the game is over or not.
+     *
+     * @return the game over status
+     */
+    public BooleanProperty isGameOver() {
+        // Create a new BooleanProperty to be used when returning the if game
+        // over is true or false for the GUI
+        BooleanProperty gameOverProperty = new SimpleBooleanProperty();
+
+        // Set the BooleanProperty to the gameOver value
+        gameOverProperty.set(this.gameOver);
+        return gameOverProperty;
+    }
+
+    /**
+     * Saves the current state of the game to the file location given in the
+     * constructor. An IOException should not cause the program to crash and
+     * should be ignored.
+     */
+    public void save() {
+        try {
+            // Use GameWriter.write to write the save the file
+            Writer saveFile = new BufferedWriter(new FileWriter
+                    (this.saveFilename));
+            GameWriter.write(saveFile, this.model);
+
+        } catch (IOException e) {
+            // Did not need to handle IOException so this should just be
+            // ignored.  A catch clause is still necessary as java will not run
+            // the code otherwise
+        }
+    }
+
+    /**
+     * Tick is to be called by the view at around 60 times a second. This
+     * method will pass these ticks down to the model at a reduced rate
+     * depending on the level of the game. The game starts with zero ticks.
+     *
+     * If the game is not paused:
+     *    - Check if the current tick count is integer-divisible by the delay
+     *    specified for the current level. If it is integer-divisible:
+     *          - Tick the model. See PacmanGame.tick()
+     *    - Increment the tick count by 1.
+     * Finally, update the "game over" property to be true if the player
+     * currently has 0 lives left, and false otherwise. This should be done
+     * regardless of whether or not the game is paused.
+     */
+    public void tick() {
+        // Reduce the tick rate depending on the level.
+        int delay;
+
+        // Check the levels and change the delay value accordingly
+        switch (this.model.getLevel()) {
+            case 0:
+            case 1:
+                delay = 50;
+                break;
+            case 2:
+            case 3:
+                delay = 40;
+                break;
+            case 4:
+            case 5:
+                delay = 30;
+                break;
+            case 6:
+            case 7:
+            case 8:
+                delay = 20;
+                break;
+            default:
+                // The other case for the levels
+                delay = 10;
+        }
+
+        // Check if the game is not paused
+        if (!this.gamePaused) {
+            // Now, let's check if tick is divisible by delay and if so, tick
+            // the model
+            if (this.ticks % delay == 0) {
+                this.model.tick();
+            }
+
+            // Increment by 1
+            this.ticks += 1;
+        }
+
+        // Update the game over property if the player has 0 lives. else, leave
+        // as is
+        if (this.model.getLives() <= 0) {
+            this.gameOver = false;
+        }
+    }
+
+    /**
+     * Accepts key input from the view and acts according to the key.
+     *
+     * @param input incoming input from the view.
+     * @require input != null
+     */
+    public void accept(String input) {
+        // Let's first check if the game is not paused and only allow the
+        // accepted inputs to work
+        if (!this.gamePaused) {
+            // Now, let's use a switch statement for the keys that work when
+            // the game is not paused
+            switch (input.toLowerCase()) {
+                case "a":
+                    this.model.getHunter().setDirection(Direction.LEFT);
+                    return;
+                case "d":
+                    this.model.getHunter().setDirection(Direction.RIGHT);
+                    return;
+                case "w":
+                    this.model.getHunter().setDirection(Direction.UP);
+                    return;
+                case "s":
+                    this.model.getHunter().setDirection(Direction.DOWN);
+                    return;
+                case "o":
+                    this.model.getHunter()
+                            .activateSpecial(Hunter.SPECIAL_DURATION);
+                    return;
+            }
+        }
+
+        // The below switch statement works when the game is paused and not
+        // paused
+        switch (input.toLowerCase()) {
+            case "p":
+                if (gamePaused) {
+                    // Unpause the game
+                    this.gamePaused = false;
+                } else {
+                    // Pause the game
+                    this.gamePaused = true;
+                }
+
+                return;
+            case "r":
+                this.model.reset();
+                return;
+        }
+    }
+
+    /**
+     * Get the paused property of the game.
+     *
+     * @return the property associated with the pause state
+     */
+    public BooleanProperty isPaused() {
+        // Create a new BooleanProperty to be used when returning the if the
+        // game is paused for the GUI
+        BooleanProperty pausedProperty = new SimpleBooleanProperty();
+
+        // Set the BooleanProperty to be true/false depending on the game's
+        // pause state
+        pausedProperty.set(this.gamePaused);
+        return pausedProperty;
+    }
+
+    /**
+     * Get the ScoreViewModel created at initialisation.
+     *
+     * @return the ScoreViewModel associated with the game's scores
+     */
+    public ScoreViewModel getScoreVM() {
+        return this.scoreViewModel;
+    }
+
+    /**
+     * Gets the BoardViewModel created at initialisation.
+     *
+     * @return the BoardViewModel associated with the game play
+     */
+    public BoardViewModel getBoardVM() {
+        return this.boardViewModel;
+    }
+
+
+}

@@ -1,0 +1,127 @@
+package pacman.display;
+
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.StringProperty;
+import pacman.game.PacmanGame;
+
+/**
+ * MainViewModel
+ *
+ * Used as an intermediary between the game and the MainView
+ */
+public class MainViewModel {
+    // Initiate the PacmanGame and file name which will be used
+    private PacmanGame model;
+    private String saveFilename;
+
+    /**
+     * Creates a MainViewModel and updates the properties and the ScoreViewModel created.
+     * ScoreViewModel and BoardViewModel should be created here.
+     *
+     * By default, the game should be paused.
+     *
+     * @param model the PacmanGame to link to the view
+     * @param saveFilename the name for saving the game
+     *
+     * @require model != null && saveFilename != null && !saveFilename.isEmpty()
+     */
+    public MainViewModel(PacmanGame model, String saveFilename) {
+        this.model = model;
+        this.saveFilename = saveFilename;
+    }
+
+    /**
+     * Updates the title of the game window and the score view model.
+     *
+     * @ensure title format is "[title] by [author]" without the quotes or
+     * brackets. For example, "Default CSSE2002 PacMan Map by Evan Hughes".
+     * There should be a single space either side of "by"
+     */
+    public void update() {
+
+    }
+
+    /**
+     * Gets the title property of the Game Window.
+     *
+     * @return the title property of the game
+     */
+    public StringProperty getTitle() {
+        return null;
+    }
+
+    /**
+     * Gets the property representing whether the game is over or not.
+     *
+     * @return the game over status
+     */
+    public BooleanProperty isGameOver() {
+        return null;
+    }
+
+    /**
+     * Saves the current state of the game to the file location given in the
+     * constructor. An IOException should not cause the program to crash and
+     * should be ignored.
+     */
+    public void save() {
+
+    }
+
+    /**
+     * Tick is to be called by the view at around 60 times a second. This
+     * method will pass these ticks down to the model at a reduced rate
+     * depending on the level of the game. The game starts with zero ticks.
+     *
+     * If the game is not paused:
+     *    - Check if the current tick count is integer-divisible by the delay
+     *    specified for the current level. If it is integer-divisible:
+     *          - Tick the model. See PacmanGame.tick()
+     *    - Increment the tick count by 1.
+     * Finally, update the "game over" property to be true if the player
+     * currently has 0 lives left, and false otherwise. This should be done
+     * regardless of whether or not the game is paused.
+     */
+    public void tick() {
+
+    }
+
+    /**
+     * Accepts key input from the view and acts according to the key.
+     *
+     * @param input incoming input from the view.
+     * @require input != null
+     */
+    public void accept(String input) {
+
+    }
+
+    /**
+     * Get the paused property of the game.
+     *
+     * @return the property associated with the pause state
+     */
+    public BooleanProperty isPaused() {
+        return null;
+    }
+
+    /**
+     * Get the ScoreViewModel created at initialisation.
+     *
+     * @return the ScoreViewModel associated with the game's scores
+     */
+    public ScoreViewModel getScoreVM() {
+        return null;
+    }
+
+    /**
+     * Gets the BoardViewModel created at initialisation.
+     *
+     * @return the BoardViewModel associated with the game play
+     */
+    public BoardViewModel getBoardVM() {
+        return null;
+    }
+
+
+}

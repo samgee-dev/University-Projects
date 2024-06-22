@@ -1,0 +1,221 @@
+package pacman.display;
+
+import static org.junit.Assert.*;
+
+import javafx.util.Pair;
+import org.junit.Test;
+import pacman.board.BoardItem;
+import pacman.board.PacmanBoard;
+import pacman.game.PacmanGame;
+import pacman.ghost.Phase;
+import pacman.hunter.*;
+import pacman.util.Direction;
+import pacman.util.Position;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * BoardViewModelTest
+ *
+ * Test the BoardViewModel class
+ */
+public class BoardViewModelTest {
+
+    // Create a BoardViewModel test
+    private PacmanGame pacmanGameTest = new PacmanGame("Pacman",
+            "Usagi Tsukino", new Speedy(),
+            new PacmanBoard(20,20));
+    private BoardViewModel boardViewTest = new BoardViewModel(pacmanGameTest);
+
+    /**
+     * Test for the getLives() function. This will check that getLives() is
+     * returning the correct lives.
+     */
+    @Test
+    public void getLives() {
+        // Check that the lives are returning the default lives
+        assertEquals(4, this.boardViewTest.getLives());
+
+        // Change the lives to 1 and check if it returns 1
+        this.pacmanGameTest.setLives(1);
+        assertEquals(1, this.boardViewTest.getLives());
+
+        // Let's also check that reset is resetting the lives to 4
+        this.pacmanGameTest.reset();
+        assertEquals(4, this.boardViewTest.getLives());
+    }
+
+    /**
+     * Test for the getLevel() function. This will check that getLevel() is
+     * returning the correct level.
+     */
+    @Test
+    public void getLevel() {
+        // Check that the level is set to 0 by default
+        assertEquals(0, this.boardViewTest.getLevel());
+
+        // Now let's change the level to 50
+        this.pacmanGameTest.setLevel(50);
+        assertEquals(50, this.boardViewTest.getLevel());
+
+        // Let's also check that reset is resetting the level to 0
+        this.pacmanGameTest.reset();
+        assertEquals(0, this.boardViewTest.getLevel());
+    }
+
+    /**
+     * Test for the getPacmanColour() function. This will check that the
+     * function is returning the correct hunter colour.
+     */
+    @Test
+    public void getPacmanColour() {
+        // Check that the colour is on default (as the special is not active)
+        assertEquals("#FFE709", this.boardViewTest.getPacmanColour());
+
+        // Now, let's activate the special and check that it changes colour
+        this.pacmanGameTest.getHunter().activateSpecial(50);
+        assertEquals("#CDC3FF", this.boardViewTest.getPacmanColour());
+    }
+
+    /**
+     * Test for the getPacmanMouthAngle() function. Check that it is returning
+     * the correct angle depending on the direction.
+     */
+    @Test
+    public void getPacmanMouthAngle() {
+        // Check that the RIGHT direction sets the angle to 30
+        this.pacmanGameTest.getHunter().setDirection(Direction.RIGHT);
+        assertEquals(30, this.boardViewTest.getPacmanMouthAngle());
+
+        // Check that the UP direction sets the angle to 120
+        this.pacmanGameTest.getHunter().setDirection(Direction.UP);
+        assertEquals(120, this.boardViewTest.getPacmanMouthAngle());
+
+        // Check that the LEFT direction sets the angle to 210
+        this.pacmanGameTest.getHunter().setDirection(Direction.LEFT);
+        assertEquals(210, this.boardViewTest.getPacmanMouthAngle());
+
+        // Check that the DOWN direction sets the angle to 300
+        this.pacmanGameTest.getHunter().setDirection(Direction.DOWN);
+        assertEquals(300, this.boardViewTest.getPacmanMouthAngle());
+    }
+
+    /**
+     * Test for the getPacmanPosition() function. Check that it is returning
+     * the correct current position.
+     */
+    @Test
+    public void getPacmanPosition() {
+        // Check that the pacman is at the correct position
+        assertEquals(new Position(0,0),
+                this.boardViewTest.getPacmanPosition());
+
+        // Change the position and check that it still matches
+        this.pacmanGameTest.getHunter().setPosition(new Position(2,5));
+        assertEquals(new Position(2,5),
+                this.boardViewTest.getPacmanPosition());
+    }
+
+    /**
+     * Test for the getBoard() function. Check that it is returning the
+     * associated board.
+     */
+    @Test
+    public void getBoard() {
+        // Check that it is returning the correct board
+        assertEquals(this.pacmanGameTest.getBoard(),
+                this.boardViewTest.getBoard());
+
+        // Change the board a bit to check that it is not returning the same
+        // thing over and over again
+        this.pacmanGameTest.getBoard().setEntry(new Position(2,2),
+                BoardItem.DOT);
+        this.pacmanGameTest.getBoard().setEntry(new Position(2,5),
+                BoardItem.BIG_DOT_SPAWN);
+        this.pacmanGameTest.getBoard().setEntry(new Position(8,8),
+                BoardItem.WALL);
+        assertEquals(this.pacmanGameTest.getBoard(),
+                this.boardViewTest.getBoard());
+    }
+
+    /**
+     * Test for getGhosts() function. Check that is is returning the correct
+     * list
+     */
+    @Test
+    public void getGhosts() {
+        // Check that the correct list is being returned
+        List<Pair<Position,String>> ghostTestList = new
+                ArrayList<Pair<Position,String>>();
+        ghostTestList.addAll(
+                List.of(new Pair<>(new Position(0,0), "#d54e53"),
+                        new Pair<>(new Position(0,0), "#e78c45"),
+                        new Pair<>(new Position(0,0), "#7aa6da"),
+                        new Pair<>(new Position(0,0), "#c397d8")));
+
+        // Since the getGhost() function can be in any order, a for loop will
+        // be used to iterate through each element on the list to check if
+        // there is a match. If there is no match, it will fail.
+        for (int i = 0; i < 4; i++) {
+            Boolean checkIfFail = true;
+
+            for (int j = 0; j < 4; j++) {
+                // Compare the order and if it matches, change the value of the
+                // boolean to be false
+                if (ghostTestList.get(i).equals(this.boardViewTest.getGhosts()
+                        .get(j))) {
+                    checkIfFail = false;
+
+                }
+            }
+
+            // Check if it failed
+            if (checkIfFail) {
+                fail();
+            }
+        }
+
+        // Change some of the positions and the colour of the ghost
+        this.pacmanGameTest.getGhosts().get(0).setPosition(new
+                Position(2,2));
+        this.pacmanGameTest.getGhosts().get(2).setPosition(new
+                Position(3,3));
+        this.pacmanGameTest.getGhosts().get(1).setPhase(Phase.FRIGHTENED,
+                50);
+        this.pacmanGameTest.getGhosts().get(2).setPhase(Phase.FRIGHTENED,
+                20);
+
+        // Check that the correct list is being returned
+        List<Pair<Position,String>> ghostTestList2 = new
+                ArrayList<Pair<Position,String>>();
+        ghostTestList2.addAll(
+                List.of(new Pair<>(new Position(2,2), "#d54e53"),
+                        new Pair<>(new Position(0,0), "#0000FF"),
+                        new Pair<>(new Position(3,3), "#0000FF"),
+                        new Pair<>(new Position(0,0), "#c397d8")));
+
+
+        // Iterate through the list and check that the elements are present in
+        // both. Else, fail the test
+        for (int i = 0; i < 4; i++) {
+            Boolean checkIfFail = true;
+
+            for (int j = 0; j < 4; j++) {
+                // Compare the order and if it matches, change the value of the
+                // boolean to be false
+                if (ghostTestList2.get(i).equals(this.boardViewTest.getGhosts()
+                        .get(j))) {
+                    checkIfFail = false;
+
+                }
+            }
+
+            // Check if it failed
+            if (checkIfFail) {
+                fail();
+            }
+        }
+    }
+
+}

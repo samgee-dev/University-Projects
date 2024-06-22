@@ -1,0 +1,16 @@
+package pacman.display;
+
+/**
+ * ScoreViewModel
+ *
+ * Is an intermediary between ScoreView and the PacmanGame. Used for displaying
+ * the players score in the GUI
+ */
+public class ScoreViewModel {
+
+    /**
+     * Constructs a new BoardViewModel to model the given PacmanGame
+     *
+     *
+     */
+}

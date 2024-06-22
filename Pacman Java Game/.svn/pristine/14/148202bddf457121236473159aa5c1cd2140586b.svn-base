@@ -1,0 +1,93 @@
+package pacman.display;
+
+import static org.junit.Assert.*;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import org.junit.Test;
+import pacman.board.PacmanBoard;
+import pacman.game.PacmanGame;
+import pacman.hunter.Speedy;
+
+/**
+ * ScoreViewModelTest
+ *
+ * Test the ScoreViewModel class
+ */
+public class ScoreViewModelTest {
+
+    // Create a BoardViewModel test
+    private PacmanGame pacmanGameTest = new PacmanGame("Pacman",
+            "Usagi Tsukino", new Speedy(),
+            new PacmanBoard(20,20));
+    private ScoreViewModel scoreViewTest = new ScoreViewModel(pacmanGameTest);
+
+
+    /**
+     * Test for the update() function. This will check that update() is
+     * updating everything correctly
+     */
+    @Test
+    public void update() {
+
+    }
+
+    /**
+     * Test for the switchScoreOrder() function. This will check that it
+     * switches the order of the scores.
+     */
+    @Test
+    public void switchScoreOrder() {
+
+    }
+
+    /**
+     * Test for the getCurrentScoreProperty() function. This will check that it
+     * returns the correct current score in the correct format.
+     */
+    @Test
+    public void getCurrentScoreProperty() {
+        // Check that it is returning the current score of 0
+        StringProperty testCurrentScore = new SimpleStringProperty();
+        testCurrentScore.set("Score: 0");
+        assertEquals(testCurrentScore,
+                this.scoreViewTest.getCurrentScoreProperty());
+    }
+
+    /**
+     * Test for the getSortedBy() function. This will check that it returns the
+     * correct score text
+     */
+    @Test
+    public void getSortedBy() {
+
+    }
+
+    /**
+     * Test for the getScores() function. This will check that the
+     * ObservableList that is being returned is correct.
+     */
+    @Test
+    public void getScores() {
+
+    }
+
+    /**
+     * Test for the getCurrentScore() function. This will check that the
+     * current score is being returned correctly.
+     */
+    @Test
+    public void getCurrentScore() {
+
+    }
+
+    /**
+     * Test for the setPlayerScore() function. This will check that the score
+     * is being set correctly.
+     */
+    @Test
+    public void setPlayerScore() {
+
+    }
+
+}

@@ -1,0 +1,4 @@
+package pacman.display;
+
+public class ScoreViewModelTest {
+}

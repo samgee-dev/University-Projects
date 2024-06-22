@@ -1,0 +1,10 @@
+package pacman.display;
+
+/**
+ * MainViewModel
+ *
+ * Used as an intermediary between the game and the MainView
+ */
+public class MainViewModel {
+
+}
